@@ -1,0 +1,16 @@
+{
+  "twitter": {
+    "consumer_key": "",
+    "consumer_secret": "",
+    "access_token": "",
+    "access_token_secret": ""
+  },
+  "video": {
+    "path": "data/movie.mkv"
+  },
+  "settings": {
+    "post_cron": "00 */10 * * * *",
+    "movie_increment": 60,
+    "restart": true
+  }
+}
