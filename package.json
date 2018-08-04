@@ -1,0 +1,18 @@
+{
+  "name": "koenokatachibot",
+  "version": "1.0.0",
+  "description": "Twitter bot that posts an entire movie frame by frame",
+  "main": "index.js",
+  "repository": "https://github.com/jaredallard/koenokatachibot",
+  "author": "Jared Allard <jaredallard@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cron": "^1.3.0",
+    "debug": "^3.1.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs-extra": "^7.0.0",
+    "lodash.get": "^4.4.2",
+    "lodash.set": "^4.3.2",
+    "twit": "^2.2.11"
+  }
+}
