@@ -6,7 +6,7 @@ ENV DEBUG "knkb:*"
 WORKDIR /srv/app
 
 # Install dumb-init
-RUN apk add --no-cache dumb-init
+RUN apk add --no-cache dumb-init ffmpeg
 
 COPY package.json /srv/app
 RUN yarn
