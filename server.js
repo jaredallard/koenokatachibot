@@ -34,7 +34,7 @@ const init = async () => {
     onTick: async () => {
       debug('cron', 'fire')
       const filePath = await parser(config, config.video.path, db)
-      //await poster(config, filePath)
+      await poster(config, filePath)
     },
     start: false,
     timeZone: 'America/Los_Angeles'
