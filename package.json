@@ -14,5 +14,10 @@
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "twit": "^2.2.11"
+  },
+  "devDependencies": {
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "oauth": "^0.9.15"
   }
 }
