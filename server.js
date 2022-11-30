@@ -32,7 +32,13 @@ const init = async () => {
   const fn = async () => {
       debug('cron', 'fire')
       const media = await parser(config, config.video.path, db)
-      await poster(config, media)
+      try {
+        await poster(config, media)
+      } catch(e) {
+        debug('error', e)
+        debug('retrying')
+        await poster(config, media)
+      }
       debug('cron', 'done will fire again in', job.nextDates().c)
   }
 
