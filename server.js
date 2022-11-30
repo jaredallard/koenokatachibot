@@ -29,13 +29,16 @@ const init = async () => {
 
   debug('db loaded')
 
+  const fn = async () => {
+      debug('cron', 'fire')
+      const media = await parser(config, config.video.path, db)
+      await poster(config, media)
+      debug('cron', 'done will fire again in', job.nextDates().c)
+  }
+
   const job = new CronJob({
     cronTime: config.settings.post_cron,
-    onTick: async () => {
-      debug('cron', 'fire')
-      const filePath = await parser(config, config.video.path, db)
-      await poster(config, filePath)
-    },
+    onTick: fn,
     start: false,
     timeZone: 'America/Los_Angeles'
   })
@@ -43,6 +46,9 @@ const init = async () => {
   job.start()
 
   debug('cron loaded')
+
+  // start the first one
+  await fn()
 }
 
 init()

@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:10
+FROM node:19-alpine
 
 ENV NODE_ENV "production"
 ENV DEBUG "knkb:*"

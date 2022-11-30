@@ -1,9 +1,7 @@
 {
-  "twitter": {
-    "consumer_key": "",
-    "consumer_secret": "",
-    "access_token": "",
-    "access_token_secret": ""
+  "masto": {
+    "url": "",
+    "accessToken": ""
   },
   "video": {
     "path": "data/movie.mkv"
