@@ -1,4 +1,3 @@
 data
 timestamps
-node_modules
-config
+target

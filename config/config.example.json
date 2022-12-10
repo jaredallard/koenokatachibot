@@ -1,14 +1,15 @@
 {
   "masto": {
-    "url": "",
+    "url": "https://mstdn.satania.social",
     "accessToken": ""
   },
   "video": {
-    "path": "data/movie.mkv"
+    "paths": [
+      "movie_file.mkv"
+    ]
   },
   "settings": {
     "post_cron": "00 */10 * * * *",
-    "movie_increment": 60,
-    "restart": true
+    "movie_increment": 5
   }
 }
