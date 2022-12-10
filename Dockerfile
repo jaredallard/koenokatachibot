@@ -6,6 +6,7 @@ RUN --mount=type=cache,target=/usr/local/cargo/registry --mount=type=cache,targe
 RUN --mount=type=cache,target=/src/target mkdir -p release && cp target/release/koenokatachibot release/koenokatachibot
 
 FROM debian:bullseye-slim
+WORKDIR /srv/app
 ENTRYPOINT ["/usr/local/bin/koenokatachibot"]
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates ffmpeg && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /src/release/koenokatachibot /usr/local/bin/koenokatachibot

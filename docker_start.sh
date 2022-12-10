@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 docker buildx build -t knkb .
 docker run -it --restart=on-failure \
