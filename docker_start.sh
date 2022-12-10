@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-docker build -t knkb .
+docker buildx build -t knkb .
 docker run -it --restart=on-failure \
   -v "$(pwd)/config:/srv/app/config" \
   -v "$(pwd)/data:/srv/app/data:ro" \
