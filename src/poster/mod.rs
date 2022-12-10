@@ -2,7 +2,7 @@ use std::error::Error;
 use std::path::Path;
 
 use megalodon::entities::UploadMedia;
-use megalodon::megalodon::PostStatusInputOptions;
+use megalodon::megalodon::{PostStatusInputOptions, UploadMediaInputOptions};
 
 use crate::config::Config;
 
@@ -22,7 +22,13 @@ pub async fn upload_image_to_mastodon(
 
     // upload the image
     let media_req = client
-        .upload_media(image_path.to_string_lossy().to_string(), None)
+        .upload_media(
+            image_path.to_string_lossy().to_string(),
+            Some(&UploadMediaInputOptions {
+                description: Some(status.to_string()),
+                ..Default::default()
+            }),
+        )
         .await?
         .json();
 

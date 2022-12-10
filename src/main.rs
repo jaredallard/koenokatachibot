@@ -31,6 +31,8 @@ async fn main() {
             // index + 1 because we want to start at 1
             let episode = db.current_movie + 1;
             let seconds = db.current_post - conf.settings.movie_increment;
+
+            println!("Uploading image to mastodon");
             poster::upload_image_to_mastodon(
                 &conf,
                 &screenshot_path,
