@@ -36,7 +36,7 @@ async fn main() {
             poster::upload_image_to_mastodon(
                 &conf,
                 &screenshot_path,
-                format!("Ep {} - {}:{}", episode, seconds % 60, (seconds / 60) % 60).as_str(),
+                format!("Ep {} - {}:{}", episode, (seconds / 60) % 60, seconds % 60).as_str(),
             )
             .await
             .expect("Failed to upload image to mastodon");

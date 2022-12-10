@@ -1,9 +1,19 @@
 use std::error::Error;
+use std::fs;
+use std::io;
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
 use crate::config::Config;
 use crate::storage::{save_storage, Storage};
+
+// removes all files in a directory, but not the directory itself
+fn remove_dir_contents<P: AsRef<Path>>(path: P) -> io::Result<()> {
+    for entry in fs::read_dir(path)? {
+        fs::remove_file(entry?.path())?;
+    }
+    Ok(())
+}
 
 // gets the length of a movie in seconds
 fn get_movie_length(path: &Path) -> u64 {
@@ -83,6 +93,7 @@ pub fn get_current_screenshot(
         // check if we're at the end of the movies
         if db.current_movie > config.video.paths.len() as u64 {
             db.current_movie = 0;
+            remove_dir_contents(&screenshot_path)?;
         }
     }
     save_storage(db)?;
