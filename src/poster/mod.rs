@@ -1,8 +1,8 @@
 use std::error::Error;
 use std::path::Path;
 
-use megalodon::entities::UploadMedia;
-use megalodon::megalodon::{PostStatusInputOptions, UploadMediaInputOptions};
+use megalodon::entities::{Status, UploadMedia};
+use megalodon::megalodon::{PostStatusInputOptions, PostStatusOutput, UploadMediaInputOptions};
 
 use crate::config::Config;
 
@@ -35,7 +35,7 @@ pub async fn upload_image_to_mastodon(
     // check if we're an attachment, and if so post the status
     if let UploadMedia::Attachment(media) = media_req {
         // create a status with the media attached
-        let status = client
+        let statusOut = client
             .post_status(
                 status.to_string(),
                 Some(&PostStatusInputOptions {
@@ -46,6 +46,11 @@ pub async fn upload_image_to_mastodon(
             )
             .await?
             .json();
+
+        let status: Status;
+        let PostStatusOutput::Status(statusOut) = status else {
+            unreachable!();
+        };
 
         println!("Posted status: {:?} (media: {})", status.url, media.url);
     } else {
