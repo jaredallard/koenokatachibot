@@ -35,7 +35,7 @@ pub async fn upload_image_to_mastodon(
     // check if we're an attachment, and if so post the status
     if let UploadMedia::Attachment(media) = media_req {
         // create a status with the media attached
-        let statusOut = client
+        let status_out = client
             .post_status(
                 status.to_string(),
                 Some(&PostStatusInputOptions {
@@ -47,9 +47,9 @@ pub async fn upload_image_to_mastodon(
             .await?
             .json();
 
-        let status: Status;
-        let PostStatusOutput::Status(statusOut) = status else {
-            unreachable!();
+        let status = match status_out {
+            PostStatusOutput::Status(status) => status,
+            _ => unreachable!(),
         };
 
         println!("Posted status: {:?} (media: {})", status.url, media.url);
