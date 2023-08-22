@@ -1,7 +1,7 @@
 use std::error::Error;
 use std::path::Path;
 
-use megalodon::entities::{Status, UploadMedia};
+use megalodon::entities::UploadMedia;
 use megalodon::megalodon::{PostStatusInputOptions, PostStatusOutput, UploadMediaInputOptions};
 
 use crate::config::Config;

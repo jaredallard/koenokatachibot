@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
 docker buildx build -t knkb .
 docker run -it --restart=on-failure \
