@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-docker buildx build -t knkb .
+image_name="ghcr.io/jaredallard/koenokatachibot:devel"
+docker buildx build -t "$image_name" .
 docker run -it --restart=on-failure \
   -v "$(pwd)/config:/srv/app/config" \
   -v "$(pwd)/data:/srv/app/data:ro" \
   -v "$(pwd)/timestamps:/srv/app/timestamps" \
-  -d knkb
+  -d "$image_name"
