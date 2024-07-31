@@ -13,8 +13,9 @@ pub async fn upload_image_to_mastodon(
     image_path: &Path,
     status: &str,
 ) -> Result<(), Box<dyn Error>> {
+    // TODO(jaredallard): This should be configurable.
     let client = megalodon::generator(
-        megalodon::SNS::Mastodon,
+        megalodon::SNS::Pleroma,
         conf.masto.url.to_string(),
         Some(conf.masto.access_token.to_string()),
         None,

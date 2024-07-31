@@ -1,3 +1,4 @@
-data
-timestamps
-target
+data/
+timestamps/
+target/
+media/
