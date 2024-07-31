@@ -1,6 +1,6 @@
 [package]
 name = "koenokatachibot"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Jared Allard <jared@rgst.io>"]
 description = "A bot to post media on Mastodon at a set interval from a movie/tv show"
@@ -8,9 +8,10 @@ repository = "https://github.com/jaredallard/koenokatachibot"
 license = "GPL-3.0"
 
 [dependencies]
-megalodon = "0.3.0"
-serde = { version = "1.0.149", features = ["derive"] }
-serde_json = "1.0.89"
-tokio = { version = "1.23.0", features = ["macros", "rt-multi-thread"] }
-tokio-cron-scheduler = { version = "0.8.1", features = ["signal"] }
-uuid = "1.2.2"
+chrono = "0.4.38"
+megalodon = "0.13.7"
+serde = { version = "1.0.204", features = ["derive"] }
+serde_json = "1.0.121"
+tokio = { version = "1.39.2", features = ["macros", "rt-multi-thread"] }
+tokio-cron-scheduler = { version = "0.10.2", features = ["signal"] }
+uuid = "1.10.0"
