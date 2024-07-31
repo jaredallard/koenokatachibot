@@ -30,8 +30,8 @@ RUN set -eux; \
 
 WORKDIR /src
 COPY . .
-RUN --mount=type=cache,target=/usr/local/cargo/registry --mount=type=cache,target=/src/target cargo build --release --target-dir target
-RUN --mount=type=cache,target=/src/target mkdir -p release && cp target/release/koenokatachibot release/koenokatachibot
+RUN --mount=type=cache,target=/usr/local/cargo/registry cargo build --release --target-dir target
+RUN mkdir -p release && cp target/release/koenokatachibot release/koenokatachibot
 
 FROM debian:bookworm-slim
 WORKDIR /srv/app
