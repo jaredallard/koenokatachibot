@@ -19,7 +19,7 @@ pub async fn upload_image_to_mastodon(
         conf.masto.url.to_string(),
         Some(conf.masto.access_token.to_string()),
         None,
-    );
+    )?;
 
     // upload the image
     let media_req = client

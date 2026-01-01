@@ -1,8 +1,8 @@
 [package]
 name = "koenokatachibot"
 version = "0.1.1"
-edition = "2021"
-authors = ["Jared Allard <jared@rgst.io>"]
+edition = "2024"
+authors = ["Jared Allard <jaredallard@users.noreply.github.com>"]
 description = "A bot to post media on Mastodon at a set interval from a movie/tv show"
 repository = "https://github.com/jaredallard/koenokatachibot"
 license = "GPL-3.0"
