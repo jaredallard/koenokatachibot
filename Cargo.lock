@@ -637,9 +637,9 @@ dependencies = [
 
 [[package]]
 name = "megalodon"
-version = "1.1.1"
+version = "1.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c0e0aaa5b9b74a217c8e9261ade1c4d6de8cf41f06b94b6ed95464a99945bf6f"
+checksum = "87bac188d0d1271fe81a496096e615977111296eae0c8492f4ab90342f9627ab"
 dependencies = [
  "async-trait",
  "chrono",
@@ -650,6 +650,9 @@ dependencies = [
  "rand 0.8.5",
  "regex",
  "reqwest",
+ "rustls",
+ "rustls-native-certs",
+ "rustls-pki-types",
  "serde",
  "serde_json",
  "sha1",
